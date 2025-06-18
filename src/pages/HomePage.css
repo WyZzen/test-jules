@@ -1,0 +1,253 @@
+.homepage {
+  padding: 1.5rem;
+  background-color: #f4f6f8; /* Light background for the page */
+}
+
+.homepage h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Summary Cards Section */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card-item {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.summary-card-item h3 {
+  font-size: 1.25rem;
+  color: #007bff;
+  margin-bottom: 0.75rem;
+}
+
+.summary-card-item .count {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+
+.summary-card-item .description {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Quick Access Section */
+.quick-access {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.quick-access h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.quick-access-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.quick-access-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  display: inline-flex; /* For icon alignment if added */
+  align-items: center; /* For icon alignment if added */
+  gap: 0.5rem; /* Space between icon and text if added */
+}
+
+.quick-access-button:hover {
+  background-color: #0056b3;
+  color: #fff; /* Ensure text color remains white on hover */
+}
+
+.quick-access-button.secondary {
+    background-color: #28a745; /* Green for attachments */
+}
+.quick-access-button.secondary:hover {
+    background-color: #1e7e34;
+}
+
+.quick-access-button.tertiary {
+    background-color: #dc3545; /* Red for incidents */
+}
+.quick-access-button.tertiary:hover {
+    background-color: #c82333;
+}
+
+.quick-access-button.view-all {
+    background-color: #17a2b8; /* Info blue for view all */
+}
+.quick-access-button.view-all:hover {
+    background-color: #117a8b;
+}
+
+
+/* Activity Feed Section */
+.activity-feed {
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.activity-feed h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.activity-list {
+  list-style-type: none;
+  padding: 0;
+  max-height: 400px; /* Limit height and make scrollable if needed */
+  overflow-y: auto;
+}
+
+.activity-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item .type {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.activity-item .title {
+  font-style: italic;
+  color: #333;
+}
+
+.activity-item .date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-left: 0.5rem;
+}
+
+.loading-message, .error-message {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+.error-message {
+    color: #dc3545;
+}
+
+/* Responsive adjustments for HomePage */
+@media (max-width: 768px) {
+  .homepage {
+    padding: 1rem;
+  }
+
+  .homepage h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr; /* Stack cards on tablets */
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .summary-card-item {
+    padding: 1rem;
+  }
+  .summary-card-item h3 {
+    font-size: 1.1rem;
+  }
+  .summary-card-item .count {
+    font-size: 2rem;
+  }
+
+  .quick-access {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .quick-access h2 {
+    font-size: 1.25rem;
+  }
+  .quick-access-buttons {
+    flex-direction: column; /* Stack buttons */
+    align-items: stretch; /* Make buttons full width */
+  }
+  .quick-access-button {
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't break layout */
+    justify-content: center; /* Center text in button */
+    padding: 0.9rem 1rem; /* Adjust padding for better tap */
+  }
+
+  .activity-feed {
+    padding: 1rem;
+  }
+  .activity-feed h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage {
+    padding: 0.75rem;
+  }
+  .homepage h1 {
+    font-size: 1.5rem;
+  }
+  .summary-card-item h3 {
+    font-size: 1rem;
+  }
+  .summary-card-item .count {
+    font-size: 1.75rem;
+  }
+  .quick-access-button {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+  .activity-item {
+    font-size: 0.9rem;
+  }
+  .activity-item .date {
+    display: block; /* Date on new line for very small screens */
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+}
