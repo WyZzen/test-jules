@@ -1,0 +1,88 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* Prevent body scroll when sidebar might be overlay */
+}
+
+.main-layout-header {
+  /* Styles for TopNavBar container - will be controlled by TopNavBar.css or inline */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Example shadow */
+  z-index: 1000; /* Ensure TopNavBar stays above other content */
+}
+
+.main-layout-body {
+  display: flex;
+  flex-grow: 1; /* Ensures body takes remaining vertical space */
+  overflow-y: auto; /* Allow body to scroll if content overflows */
+  position: relative; /* For potential absolute positioning of sidebar toggle */
+}
+
+.main-layout-sidebar {
+  width: 250px; /* Default width */
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+  background-color: #f8f8f8;
+  flex-shrink: 0; /* Prevents sidebar from shrinking */
+  height: 100%; /* Fill parent height */
+  overflow-y: auto; /* Scroll sidebar if content overflows */
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.main-layout-content {
+  flex-grow: 1; /* Content area takes remaining horizontal space */
+  padding: 1.5rem; /* Increased padding */
+  overflow-y: auto; /* Add scroll for content overflow */
+  background-color: #eef2f5; /* Light background for content area */
+}
+
+/* Hamburger button styling (placeholder, actual button in TopNavBar.js) */
+.sidebar-toggle-button {
+  display: none; /* Hidden by default, shown on small screens */
+  position: fixed; /* Or absolute, depending on layout */
+  top: 15px;
+  left: 15px;
+  z-index: 1050; /* Above sidebar */
+  padding: 0.5rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* Tablet and smaller */
+@media (max-width: 768px) {
+  .main-layout-sidebar {
+    position: absolute; /* Take out of flow */
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1001; /* Ensure sidebar is above content but below toggle */
+    transform: translateX(-100%); /* Hidden by default */
+    border-right: 1px solid #ccc; /* Keep border for when it slides in */
+  }
+
+  .main-layout-sidebar.open {
+    transform: translateX(0); /* Show sidebar */
+  }
+
+  .main-layout-content {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .sidebar-toggle-button {
+    display: block; /* Show toggle button */
+  }
+}
+
+/* Mobile specific adjustments (if needed beyond tablet) */
+@media (max-width: 480px) {
+  .main-layout-content {
+    padding: 0.75rem;
+  }
+  .main-layout-sidebar {
+    width: 220px; /* Slightly reduce sidebar width on very small screens if open */
+  }
+}

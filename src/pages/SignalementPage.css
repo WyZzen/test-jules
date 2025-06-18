@@ -1,0 +1,150 @@
+.signalement-page {
+  padding: 1rem;
+}
+
+.signalement-page h1, .signalement-page h2 {
+  margin-bottom: 1rem;
+}
+
+.incident-form-container {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding/border don't add to width */
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.submit-button-incident {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #dc3545; /* Red color for incidents */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button-incident:hover {
+  background-color: #c82333;
+}
+
+.submit-button-incident:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.filter-controls-incidents {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.incidents-list-container {
+  margin-top: 2rem;
+  overflow-x: auto; /* Allow table to scroll horizontally */
+}
+
+.incidents-table {
+  width: 100%;
+  min-width: 700px; /* Min width before scroll, adjust as needed */
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.incidents-table th,
+.incidents-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+  white-space: nowrap; /* Keep content on one line */
+}
+
+.incidents-table th {
+  background-color: #f2f2f2;
+}
+
+/* Reusing message style from previous CSS files */
+.message {
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem; /* Added margin bottom for spacing */
+  border-radius: 4px;
+  text-align: center;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive adjustments for SignalementPage */
+@media (max-width: 768px) {
+  .incident-form-container {
+    padding: 1rem;
+  }
+
+  .filter-controls-incidents {
+    flex-direction: column;
+    align-items: stretch; /* Make select full width */
+  }
+
+  .filter-controls-incidents label {
+    margin-bottom: 0.5rem;
+  }
+
+  .filter-controls-incidents select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .signalement-page {
+    padding: 0.5rem;
+  }
+
+  .incidents-table th,
+  .incidents-table td {
+    padding: 0.5rem; /* Reduce cell padding */
+  }
+   .submit-button-incident {
+    width: 100%; /* Make button full width */
+    box-sizing: border-box;
+  }
+}
